@@ -18,6 +18,8 @@ public class Main {
         ///////////////////////////////////////////////////////////////////
         System.out.println(VowelRemover("Remove all of the vowels."));
         System.out.println("Correct output: Rmv ll f th vwls.");
+        System.out.println(VowelRemover("Is this gonna work?"));
+        System.out.println("Correct output: s ths gnn wrk");
         ///////////////////////////////////////////////////////////////////
         System.out.println(ContainsSubstring("Sentence","ten"));
         System.out.println("Correct output: true");
@@ -27,11 +29,19 @@ public class Main {
         System.out.println("Correct output: true");
         System.out.println(ContainsSubstring("",""));
         System.out.println("Correct output: true");
+        System.out.println(ContainsSubstring("lanyard","yard"));
+        System.out.println("Correct output: true");
         ///////////////////////////////////////////////////////////////////
         System.out.println(ReverseString("ABCDEF"));
         System.out.println("Correct output: FEDCBA");
+        System.out.println(ReverseString("Hulla Palooza"));
+        System.out.println("Correct output: azoolaP alluH");
         ///////////////////////////////////////////////////////////////////
         System.out.println(PalindromeChecker("level"));
+        System.out.println("Correct output: true");
+        System.out.println(PalindromeChecker("racecars"));
+        System.out.println("Correct output: false");
+        System.out.println(PalindromeChecker("tacocat"));
         System.out.println("Correct output: true");
         ///////////////////////////////////////////////////////////////////
     }
@@ -111,8 +121,14 @@ public class Main {
      * @return reversed input String
      */
     public static String ReverseString(String input){
+        String output = "";
+        int length = input.length();
 
-        return "";
+        for(int i = length - 1; i >= 0; i--){
+            String letter = input.substring(i, i + 1);
+            output += letter;
+        }
+        return output;
     }
 
     /**
@@ -121,7 +137,6 @@ public class Main {
      * @return true if given string is a palindrome, false otherwise
      */
     public static boolean PalindromeChecker(String input){
-
-        return false;
+        return input.equals(ReverseString(input));
     }
 }
